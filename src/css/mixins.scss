@@ -1,3 +1,23 @@
+// Function of get vw instead of px
+@function get-vw($target) { 
+  $vw-context: (1000*.01) * 1px;
+  @return ($target/$vw-context) * 1vw;
+}
+// Same mixin for font size and line-height
+@mixin vw($size) {
+  $wide-screen: "(max-width: 992px)";
+  font-size: get-vw($size);
+  @media #{$wide-screen} {
+    font-size: $size;
+  }
+}
+@mixin vh($size) {
+  $wide-screen: "(max-width: 992px)";
+  line-height: get-vw($size);
+  @media #{$wide-screen} {
+    line-height: $size;
+  }
+}
 @mixin respond($breakpoint) {
     @if $breakpoint == phone-portrait {
         @media only screen and (max-width: 23.5em) { @content }; /*under 376px*/

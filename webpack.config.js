@@ -3,6 +3,7 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const autoprefixer = require('autoprefixer');
 
 const ENV = process.env.npm_lifecycle_event;
 const isDev = ENV === 'dev';
@@ -78,7 +79,13 @@ const config = {
             }
           }, {
             loader: 'postcss-loader',
-            options: { sourceMap: true, config: { path: './postcss.config.js' } }
+            options: { 
+              plugins: [
+              autoprefixer({
+                  browsers:['ie >= 8', 'last 4 version']
+              })
+          ],
+          sourceMap: true, config: { path: './postcss.config.js' } }
           }, {
             loader: 'sass-loader',
             options: {
