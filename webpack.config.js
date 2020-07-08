@@ -94,7 +94,7 @@ const config = {
             loader: 'file-loader',
             options: {
               outputPath: 'img',
-              name: '[name].[ext]'
+              name: 'img/[name].[ext]'
             }},
           {
             loader: 'image-webpack-loader',
@@ -129,7 +129,8 @@ const config = {
         use: [{
           loader: 'file-loader',
           options: {
-            outputPath: 'fonts'
+            outputPath: 'fonts',
+            name: 'fonts/[name].[ext]',
           }
         }]
       }
@@ -146,7 +147,8 @@ const config = {
     }),
     new CopyWebpackPlugin([
       // {from: './src/static', to: './'},
-      // {from: './src/img', to: './img/'},
+      {from: './src/img', to: './img/'},
+      /* {from: './src/fonts', to : './fonts'} */
     ]),
   ],
 

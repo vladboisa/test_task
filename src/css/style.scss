@@ -1,7 +1,9 @@
 @import './mixins.scss';
+@import './fonts.css';
 
 body {
   text-align: center;
+  font-family: 'MUSEOSANSCYRL', sans-serif;
 }
 
 .hello {
