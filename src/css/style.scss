@@ -1,0 +1,12 @@
+@import './mixins.scss';
+
+body {
+  text-align: center;
+}
+
+.hello {
+  font-size: 2rem;
+}
+@include respond (tab-land) {
+  font-size: 80px;
+}
