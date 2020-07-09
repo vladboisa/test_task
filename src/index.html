@@ -9,12 +9,28 @@
   <title>Студия депиляции Pincet</title>
   <link rel="shortcut icon" href="./img/favicon.png" type="image/png">
   <link rel="stylesheet" href="style.css" />
-
+  <script src="https://api-maps.yandex.ru/2.1/?apikey=96d315ec-4c7f-479b-a4d3-be1c4ece0e37&lang=ru_RU" type="text/javascript">
+  </script>
+      <script type="text/javascript">
+      function toggleMap (el) {
+  el.style.display = (el.style.display === 'none') ? '' : 'none';
+}
+        ymaps.ready(init);
+        function init(){
+            var myMap = new ymaps.Map("map", {
+                center: [52.09337582, 23.69827536],
+                zoom: 13
+            });
+        }
+    </script>
 </head>
 
 <body>
-  <div class="wrapper">
-    <header id="header">
+  <div class="wrapper" id="wrapper">
+    <header id="header" class="header">
+      <span class="hamburger">
+        <span class="hamb"></span>
+      </span>
       <div class="header__content">
         <div class="header__logo">
           <img src="./img/logo.png" alt="">
@@ -26,10 +42,9 @@
           </div>
           <div class="header__addresInfo">
             <p>Мы находимся в центре:<br>г.Брест, ул. Гоголя, д.65 </p>
-            <a href="#" id="addres__map" class="addres__link">
+            <a href="#" id="addres__map" class="addres__link" onclick="toggleMap(map)">
               Смотреть на карте
-              <div class="header__addresInfo--map">
-                Какой-то текст который должен быть в блоке<br>
+              <div class="header__addresInfo--map toggle__map" id="map" style="display: none;">
               </div>
             </a>
           </div>
@@ -84,17 +99,28 @@
             <button class="submit__customerCard">ПОЛУЧИТЬ КАРТУ<br> КЛИЕНТА БЕСПЛАТНО</button>
         </div>
         <div class="main__customerCard">
+            <a href="#" class="main__popupBtn">
+              <div class="main__popupBtn--insideShadow"></div>            
+                <div class="main__customerCard--popUp">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, 
+              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut</p>
+                </div>
+            </a>
             <img src="./img/Card.png" alt="" class="main__customerCard--image">
-            <a href="" class="main__popupBtn"><div class="main__popupBtn--insideShadow"></div></a>
-            <div class="main__customerCard--popUp"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, 
-              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut</p></div>
         </div>
         <div class="main__imageGirl">
-            <img src="" alt="">
+            <img src="./img/girl.png" alt="">
         </div>
       </div>
     </main>
   </div>
+  <div class="wave" style="height: 150px; overflow: hidden;" >
+    <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+      <path d="M-41.48,-21.20 C149.99,150.00 268.34,-95.22 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #FFF;">
+      </path>
+    </svg>
+  </div>
+<script src="./js/index.js"></script>
 </body>
 
 </html>
