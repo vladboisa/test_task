@@ -30,7 +30,6 @@ function closeBurg() {
               if (el.getAttribute('id') === a.getAttribute('href').substring(1)) {
                   hambgurger.classList.remove("hamb_opened");
                   headernav.style.left = "-100%";
-                  logo.style.paddingLeft = "148px";
                   body.style.overflow = "visible";
                   headernav.classList.remove("shadow");
               }
